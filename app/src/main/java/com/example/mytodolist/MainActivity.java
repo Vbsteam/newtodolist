@@ -89,6 +89,13 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "No Data", Toast.LENGTH_SHORT).show();
             }
         });
-
+        //logout button
+    btnlogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent re = new Intent(MainActivity.this, LoginActivity.class);
+                startActivity(re);
+            }
+        });
     }
 }
