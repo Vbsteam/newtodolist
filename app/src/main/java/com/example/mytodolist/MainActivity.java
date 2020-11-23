@@ -24,7 +24,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     TextView titlepage, subtitlepage, endpage;
-    Button btnAddNew;
+    Button btnAddNew,btnlogout;
 
     DatabaseReference reference;
     RecyclerView ourdoes;
@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
         endpage = findViewById(R.id.endpage);
 
         btnAddNew = findViewById(R.id.btnAddNew);
+        btnlogout =findViewById(R.id.btnlogout);
 
         // import font
         Typeface MLight = Typeface.createFromAsset(getAssets(), "fonts/ML.ttf");
