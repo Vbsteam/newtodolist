@@ -24,7 +24,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     TextView titlepage, subtitlepage, endpage;
-    Button btnAddNew,btnlogout;
+    Button btnAddNew;
 
     DatabaseReference reference;
     RecyclerView ourdoes;
@@ -41,7 +41,6 @@ public class MainActivity extends AppCompatActivity {
         endpage = findViewById(R.id.endpage);
 
         btnAddNew = findViewById(R.id.btnAddNew);
-        btnlogout =findViewById(R.id.btnlogout);
 
         // import font
         Typeface MLight = Typeface.createFromAsset(getAssets(), "fonts/ML.ttf");
@@ -57,11 +56,10 @@ public class MainActivity extends AppCompatActivity {
         btnAddNew.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent a = new Intent(MainActivity.this,NewTaskAct.class);
+                Intent a = new Intent(MainActivity.this, NewTaskAct.class);
                 startActivity(a);
             }
         });
-
 
         // working with data
         ourdoes = findViewById(R.id.ourdoes);
@@ -74,8 +72,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 // set code to retrive data and replace layout
-                for(DataSnapshot dataSnapshot1: dataSnapshot.getChildren())
-                {
+                for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
                     MyDoes p = dataSnapshot1.getValue(MyDoes.class);
                     list.add(p);
                 }
@@ -90,13 +87,6 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "No Data", Toast.LENGTH_SHORT).show();
             }
         });
-        //logout button
-    btnlogout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent re = new Intent(MainActivity.this, LoginActivity.class);
-                startActivity(re);
-            }
-        });
+        }
+
     }
-}
